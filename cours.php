@@ -1,8 +1,10 @@
 <?php
-    require 'inc/data.php'; 
+    require 'inc/data.php';  
 
     // Me permet d'aller chercher l'identifiant du cours dans l'URL (?id=0)
     $id = $_GET['id'];
+
+    // Vérifie si l'identifaint $_GET['id'] n'existe pas dans $cours et redirige vers 404.php
     if(!isset($cours[$id])){
         header('Location: 404.php');
         die;
@@ -26,26 +28,26 @@
     <div class="container">
         <div class="row mb-4">
             <div class="col">
-                <h2><?php echo $cours_current['title']; ?></h2>
+                <h2><?php echo $cours_current->getTitle(); ?></h2>
             </div>
             <div class="col text-end">
-                <span class="badge bg-success"><?php echo $cours_current['numberOfHours']; ?>h</span>
-                <span class="badge bg-warning"><?php echo $cours_current['price']; ?>€</span>
+                <span class="badge bg-success"><?php echo $cours_current->getNumberOfHours(); ?>h</span>
+                <span class="badge bg-warning"><?php echo $cours_current->getPrice(); ?>€</span>
             </div>
         </div>
 
         <div class="row mb-4">
             <div class="col-12 col-md-6">
-                <img src="<?php echo $cours_current['image']; ?>" alt="Image de cours">
+                <img src="<?php echo $cours_current->getImage(); ?>" alt="Image de cours">
             </div>
             <div class="col-12 col-md-6">
-                <p><?php echo $cours_current['description']; ?></p>
+                <p><?php echo $cours_current->getDescription(); ?></p>
             </div>
         </div>
 
         <h3>Le programme</h3>
         <ul class="mb-4">
-            <?php foreach($cours_current['programContent'] as $content){ ?>
+            <?php foreach($cours_current->getProgramContent() as $content){ ?>
                 <li><?php echo $content; ?></li>
             <?php } ?>
         </ul>
@@ -55,23 +57,23 @@
             <tbody>
                 <tr>
                     <td>Dates</td>
-                    <td><?php echo $cours_current['classDate']; ?></td>
+                    <td><?php echo $cours_current->getClassDate(); ?></td>
                 </tr>
                 <tr>
                     <td>Votre prof</td>
-                    <td><?php echo $cours_current['professor']; ?></td>
+                    <td><?php echo $cours_current->getProfessor(); ?></td>
                 </tr>
                 <tr>
                     <td>Durée</td>
-                    <td><?php echo $cours_current['numberOfHours']; ?>h</td>
+                    <td><?php echo $cours_current->getNumberOfHours(); ?>h</td>
                 </tr>
                 <tr>
                     <td>Modalité</td>
-                    <td><?php echo $cours_current['modality']; ?></td>
+                    <td><?php echo $cours_current->getModality(); ?></td>
                 </tr>
                 <tr>
                     <td>Niveau requis</td>
-                    <td><?php echo $cours_current['requiredLevel']; ?></td>
+                    <td><?php echo $cours_current->getRequiredLevel(); ?></td>
                 </tr>
             </tbody>
         </table>

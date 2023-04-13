@@ -13,10 +13,10 @@
     <div class="container">
         <h2 class="mb-4">Créer un cours</h2>
 
-        <form action="">
+        <form action="welcome.php" method="get">
             <div class="mb-3">
                 <label class="form-label" for="titre">Titre</label>
-                <input class="form-control" id="titre" type="text">
+                <input class="form-control" id="titre" type="text" name="Titre">
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image</label>

@@ -17,10 +17,10 @@
           <?php foreach($cours as $id => $cours_unit){ ?>
             <div class="col-12 col-md-4">
                 <div class="card mb-4">
-                    <img src="<?php echo $cours_unit->image; ?>" class="card-img-top" alt="Image aléatoire">
+                    <img src="<?php echo $cours_unit->getImage(); ?>" class="card-img-top" alt="Image aléatoire">
                     <div class="card-body">
-                      <h5 class="card-title"><?php echo $cours_unit->title; ?></h5>
-                      <p class="card-text"><?php echo $cours_unit->shortDescription; ?></p>
+                      <h5 class="card-title"><?php echo $cours_unit->getTitle(); ?></h5>
+                      <p class="card-text"><?php echo $cours_unit->getShortDescription(); ?></p>
                       <a href="cours.php?id=<?php echo $id; ?>" class="btn btn-primary">En savoir plus</a>
                     </div>
                 </div>
